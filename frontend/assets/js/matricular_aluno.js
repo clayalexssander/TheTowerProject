@@ -1,8 +1,10 @@
+const API_URL = window.location.port === "3000" ? "/api" : "http://localhost:3000/api";
+
 const turmaSelect = document.getElementById("turma");
 const form = document.getElementById("formMatricula");
 
 async function carregarTurmas(){
-    const res = await fetch("http://localhost:3000/api/alunos/turmas");
+    const res = await fetch(`${API_URL}/alunos/turmas`);
     const dados = await res.json();
 
     dados.data.forEach(t => {
@@ -26,7 +28,7 @@ form.addEventListener("submit", async (e) => {
     const tipo_bancaria = document.getElementById("tipo_bancaria").value;
     const id_turma = turmaSelect.value;
 
-    const res = await fetch("http://localhost:3000/api/alunos/matricular", {
+    const res = await fetch(`${API_URL}/alunos/matricular`, {
         method: "POST",
         headers: { "Content-Type" : "application/json"},
         body: JSON.stringify({ nome, email, cidade, bolsista, nivel, telefone, tipo_bancaria, id_turma })
