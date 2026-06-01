@@ -100,7 +100,7 @@ function renderizarLivros(livros, tituloTexto, subtituloTexto) {
                     </div>
                     
                     <div class="caixa-numero-livro">
-                        <span class="etiqueta-livro">Livro</span>
+                    <span class="etiqueta-livro">${livro.label || 'Livro'}</span>
                         <span class="num-livro" style="color: ${livro.cor};">${livro.numLivro}</span>
                     </div>
                 </div>
@@ -150,5 +150,9 @@ export function iniciar(dados) {
 
     renderizarBanner(dados.banner);
     renderizarDiferenciais(dados.diferenciais);
-    renderizarLivros(dados.livros, dados.titulo, dados.subtitulo);
+    renderizarLivros(
+        dados.livros.map(livro => ({ ...livro, label: dados.labelLivro })),
+        dados.titulo,
+        dados.subtitulo
+    );
 }

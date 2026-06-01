@@ -4,6 +4,12 @@ export function iniciar(dados) {
     const elementoTitulo = document.getElementById('tituloTipos');
     if(elementoTitulo) elementoTitulo.textContent = dados.titulo;
 
+    const tituloVantagens = document.getElementById('tituloVantagens');
+    if (tituloVantagens) tituloVantagens.textContent = dados.tituloVantagens || 'Vantagens';
+
+    const ctaPlanos = document.getElementById('ctaTiposPlanos');
+    if (ctaPlanos) ctaPlanos.textContent = dados.ctaPlanos || 'Ver Planos e Precos';
+
     const grade = document.getElementById('gradeTipos');
     if (grade) {
     
