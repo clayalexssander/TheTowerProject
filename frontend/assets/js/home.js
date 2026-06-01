@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api";
+const API_URL = window.location.port === "3000" ? "/api" : "http://localhost:3000/api";
 
 function irPara(pagina){
     window.location.href = pagina;
@@ -69,9 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const logoutButton = document.getElementById("btnLogout");
     if (logoutButton) {
-        logoutButton.addEventListener("click", () => {
-            localStorage.removeItem("user");
-            window.location.href = "../index.html";
+        logoutButton.addEventListener("click", async () => {
+            try {
+                await fetch(`${API_URL}/logout`, { method: "POST" });
+            } finally {
+                localStorage.removeItem("user");
+                window.location.href = "../index.html";
+            }
         });
     }
 });

@@ -1,3 +1,5 @@
+const API_URL = window.location.port === "3000" ? "/api" : "http://localhost:3000/api";
+
 document.addEventListener('DOMContentLoaded', async () => {
     const listaAulas = document.getElementById('listaAulas');
     const listaPresenca = document.getElementById('listaPresenca');
@@ -9,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const idTurma = params.get('id');
     const tipoAula = params.get('tipo');
 
-    const response = await fetch(`http://localhost:3000/api/aulas/${idTurma}/${tipoAula}`);
+    const response = await fetch(`${API_URL}/aulas/${idTurma}/${tipoAula}`);
     const dados = await response.json();
 
     let aulaSelecionadaId = null;
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             btnConcluir.disabled = aula.aula_concluida == 1;
 
              
-            const presencaResp = await fetch(`http://localhost:3000/api/presencas/${aula.id_aula}`);
+            const presencaResp = await fetch(`${API_URL}/presencas/${aula.id_aula}`);
             const dadosPresenca = await presencaResp.json();
 
             if (!dadosPresenca.success) {
@@ -105,7 +107,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             e.target.classList.add('marcado');
 
              
-            await fetch('http://localhost:3000/api/presencas/registrar', {
+            await fetch(`${API_URL}/presencas/registrar`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ idAluno, idAula, presente })
@@ -117,7 +119,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     btnConcluir.addEventListener('click', async () => {
         if (!aulaSelecionadaId) return;
 
-        await fetch(`http://localhost:3000/api/aulas/concluir/${aulaSelecionadaId}`, {
+        await fetch(`${API_URL}/aulas/concluir/${aulaSelecionadaId}`, {
             method: 'PUT'
         });
 

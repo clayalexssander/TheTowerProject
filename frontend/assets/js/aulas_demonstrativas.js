@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api/aula-demonstrativas";
+const API_URL = `${window.location.port === "3000" ? "/api" : "http://localhost:3000/api"}/aula-demonstrativas`;
  
 document.addEventListener("DOMContentLoaded", () => {
     carregarAulas();

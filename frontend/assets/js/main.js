@@ -1,6 +1,15 @@
 import { login } from './api.js';
 
+const HOME_PAGE = window.location.port === '3000'
+    ? './frontend/home.html'
+    : 'http://localhost:3000/frontend/home.html';
+
 document.addEventListener("DOMContentLoaded", () => {
+    if (window.location.port !== '3000') {
+        window.location.replace('http://localhost:3000/index.html');
+        return;
+    }
+
     const form = document.getElementById("loginForm");
     const error = document.getElementById("loginError");
 
@@ -23,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if(result.success){
                 localStorage.setItem("user", JSON.stringify({ usuario: usuario }));
-                window.location.href = './frontend/home.html';
+                window.location.href = HOME_PAGE;
             }else{
                 error.textContent = result.message || "Usuário ou senha incorretos.";
             }
