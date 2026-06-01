@@ -8,15 +8,26 @@ function atualizarSaudacao(){
     const agora = new Date();
     const hora = agora.getHours();
     let saudacao;
+    let nomeUsuario = "Jefferson"; // default / fallback
+
+    try {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (user && user.usuario) {
+            // Capitaliza o nome do usuário para ficar elegante
+            nomeUsuario = user.usuario.charAt(0).toUpperCase() + user.usuario.slice(1);
+        }
+    } catch (e) {
+        console.error("Erro ao ler dados do usuário do localStorage:", e);
+    }
 
     if(hora >= 5 && hora < 12){
-        saudacao = "Bom dia Jefferson, bem-vindo de volta!";
+        saudacao = `Bom dia ${nomeUsuario}, bem-vindo de volta!`;
     } 
     else if(hora >= 12 && hora < 18){
-        saudacao = "Boa tarde Jefferson , bem-vindo de volta!";
+        saudacao = `Boa tarde ${nomeUsuario}, bem-vindo de volta!`;
     }
     else{
-        saudacao = "Boa noite Jefferson, bem-vindo de volta!";
+        saudacao = `Boa noite ${nomeUsuario}, bem-vindo de volta!`;
     }
     document.getElementById("saudacao").textContent = saudacao;
 }
@@ -55,4 +66,12 @@ async function carregarAgendaHoje(){
 document.addEventListener("DOMContentLoaded", () => {
     atualizarSaudacao();
     carregarAgendaHoje();
+
+    const logoutButton = document.getElementById("btnLogout");
+    if (logoutButton) {
+        logoutButton.addEventListener("click", () => {
+            localStorage.removeItem("user");
+            window.location.href = "../index.html";
+        });
+    }
 });

@@ -24,7 +24,7 @@ body.home-body{
     text-align: center;
     font-weight: 300;
     font-size: 0.4rem;
-    padding: 1px 0;
+    padding: 10px 0;
     width: 55%;
     border-bottom-left-radius: 60px;
     border-bottom-right-radius: 60px; 
@@ -160,3 +160,61 @@ body.home-body{
     from { opacity: 0; transform: translateY(10px); }
     to   { opacity: 1; transform: translateY(0); }
 }
+
+/* Botão de Logout Glassmorphic */
+.btn-logout {
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.btn-logout svg {
+    transition: transform 0.3s ease;
+}
+
+.btn-logout:hover {
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
+    transform: translateY(-50%) scale(1.05);
+}
+
+.btn-logout:hover svg {
+    transform: translateX(3px);
+}
+
+.btn-logout:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Responsividade do Header */
+@media (max-width: 768px) {
+    .barra-topo {
+        width: 85%;
+    }
+    .btn-logout span {
+        display: none;
+    }
+    .btn-logout {
+        padding: 8px;
+        right: 15px;
+    }
+}
+
