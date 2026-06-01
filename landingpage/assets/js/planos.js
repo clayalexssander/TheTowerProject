@@ -27,7 +27,7 @@ export function iniciar(dados) {
                         <span class="valor-preco texto-gradiente-azul">${precoMaior}</span>
                         <div class="detalhes-preco">
                             <span class="centavos texto-gradiente-azul">,${centavos}</span> 
-                            <span class="periodo">/mês</span>
+                            <span class="periodo">${dados.periodo || '/mes'}</span>
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@ export function iniciar(dados) {
                     </ul>
                 </div>
                 
-                <a href="${linkGrupo}" class="botao-plano" target="_blank" rel="noopener noreferrer">Entrar na Turma</a>
+                <a href="${linkGrupo}" class="botao-plano" target="_blank" rel="noopener noreferrer">${dados.ctaGrupo || 'Entrar na Turma'}</a>
             </div>
         `;
     }
@@ -73,7 +73,7 @@ export function iniciar(dados) {
                     </div>
                 </div>
 
-                <a href="${linkParticular}" class="botao-plano botao-destaque" target="_blank" rel="noopener noreferrer">Contratar Agora</a>
+                <a href="${linkParticular}" class="botao-plano botao-destaque" target="_blank" rel="noopener noreferrer">${dados.ctaParticular || 'Contratar Agora'}</a>
             </div>
         `;
     }
