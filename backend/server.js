@@ -1,3 +1,4 @@
+require('dotenv').config();
 
 const express = require('express');
 const cors =  require('cors');
@@ -15,6 +16,7 @@ const bibliotecaRouter = require('./routes/biblioteca');
 const estoqueRouter = require('./routes/estoque');
 const dashboardRouter = require('./routes/dashboard');
 const homeRouter = require('./routes/home');
+const { iniciarAgendamentoRelatorioFinanceiroMensal } = require('./services/monthlyFinancialReportScheduler');
 
 const app = express();
 const PORT = 3000;
@@ -81,4 +83,7 @@ app.use('/api/home', homeRouter);
 
 
 
-app.listen(PORT, () => console.log(`Servidor rodando em http://localhost:${PORT}`)); 
+app.listen(PORT, () => {
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
+    iniciarAgendamentoRelatorioFinanceiroMensal();
+}); 

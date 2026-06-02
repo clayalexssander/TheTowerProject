@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const confirmarBtn = document.getElementById("btnConfirmarPagamento");
   const mensagemDiv = document.getElementById("mensagemPagamento");
   const selectMensalidade = document.getElementById("selectMensalidade");
+  const enviarRelatorioBtn = document.getElementById("btnEnviarRelatorio");
+  const mensagemRelatorio = document.getElementById("mensagemRelatorio");
 
   openBtn.addEventListener("click", async () => {
     await carregarMensalidades();
@@ -17,6 +19,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
   closeBtn.addEventListener("click", () => modal.classList.remove("show"));
   cancelarBtn.addEventListener("click", () => modal.classList.remove("show"));
+
+  enviarRelatorioBtn.addEventListener("click", enviarRelatorioMensal);
 
   confirmarBtn.addEventListener("click", async () => {
     mensagemDiv.textContent = "";
@@ -51,6 +55,35 @@ document.addEventListener("DOMContentLoaded", async () => {
   // atualiza periodicamente (p.ex. a cada 60s)
   setInterval(()=>{ carregarDashboard().catch(()=>{}); }, 60000);
 });
+
+async function enviarRelatorioMensal() {
+  const botao = document.getElementById("btnEnviarRelatorio");
+  const mensagem = document.getElementById("mensagemRelatorio");
+
+  mensagem.textContent = "Enviando relatorio financeiro...";
+  botao.disabled = true;
+
+  try {
+    const res = await fetch(`${API_URL}/financas/relatorio-mensal/enviar`, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({})
+    });
+    const payload = await res.json();
+
+    if (!payload.success) {
+      mensagem.innerHTML = `<span class="bad">${payload.message || "Nao foi possivel enviar o relatorio."}</span>`;
+      return;
+    }
+
+    mensagem.innerHTML = `<span class="good">${payload.message}</span>`;
+  } catch (err) {
+    console.error("relatorio mensal", err);
+    mensagem.innerHTML = '<span class="bad">Erro de comunicacao com o servidor.</span>';
+  } finally {
+    botao.disabled = false;
+  }
+}
 
 async function carregarMensalidades() {
   const sel = document.getElementById("selectMensalidade");
