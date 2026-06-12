@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const db = require("../db_config.js");
+const {
+  enviarRelatorioFinanceiroMensal
+} = require("../services/financialReportService.js");
 
 // listar mensalidades (select * from tb_mensalidades;)
 router.get("/mensalidades", async (req, res) => {
@@ -112,6 +115,21 @@ router.get("/nao_pagaram_mes_atual", async (req, res) => {
     const [rows] = await db.query("CALL sp_alunos_pagamentos_mes_atual();");
     res.json({ success:true, data: rows[0] });
   }catch(err){ console.error(err); res.status(500).json({ success:false, message: err.message }); }
+});
+
+// envia o relatorio financeiro mensal por email manualmente
+router.post("/relatorio-mensal/enviar", async (req, res) => {
+  try{
+    const resultado = await enviarRelatorioFinanceiroMensal(req.body?.email);
+    res.json({
+      success: true,
+      message: "Relatorio financeiro mensal enviado com sucesso.",
+      data: resultado
+    });
+  }catch(err){
+    console.error(err);
+    res.status(500).json({ success:false, message: err.message });
+  }
 });
 
 module.exports = router;
