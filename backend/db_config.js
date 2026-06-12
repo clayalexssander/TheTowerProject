@@ -9,15 +9,17 @@ const db = mysql.createPool({
     connectionLimit: 10,
     queueLimit:0
 });
-( async () => {
-    try{
-        const connection = await db.getConnection();
-        console.log("Conectado ao MySQL com sucesso!");
-        connection.release();
-    }catch (error){
-        console.error(" Erro ao conectar ao MySQL:", error.message);
-    }
-})();
+if (process.env.NODE_ENV !== 'test') {
+    ( async () => {
+        try{
+            const connection = await db.getConnection();
+            console.log("Conectado ao MySQL com sucesso!");
+            connection.release();
+        }catch (error){
+            console.error(" Erro ao conectar ao MySQL:", error.message);
+        }
+    })();
+}
 
 module.exports = db;
  
