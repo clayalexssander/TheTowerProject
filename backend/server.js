@@ -46,6 +46,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use('/frontend/assets', express.static(path.join(FRONTEND_DIR, 'assets')));
+app.use('/materiais', express.static(path.join(ROOT_DIR, 'materiais')));
 
 app.get(['/', '/index.html'], (req, res) => {
     res.sendFile(path.join(ROOT_DIR, 'index.html'));
