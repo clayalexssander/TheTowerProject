@@ -1,7 +1,86 @@
 const API_URL = "http://localhost:3000/api";
 let charts = {};
 
+const TEXTOS_DASHBOARD = {
+  pt: {
+    pageTitle: "Monitoramento",
+    mainTitle: "Monitoramento",
+    subtitle: "Visão geral de turmas e alunos — análises de frequência e retenção",
+    refresh: "Atualizar dashboard",
+    totalClasses: "Total de Turmas",
+    avgAttendance: "Frequência Média",
+    studentsAtRisk: "Alunos em Risco",
+    classRanking: "Ranking de Turmas por Frequência",
+    retentionRate: "Taxa de Retenção por Período",
+    attentionClasses: "Turmas que Precisam de Atenção",
+    exitTimeline: "Linha do Tempo de Saídas",
+    selectClass: "Selecionar Turma para Detalhes",
+    dropoutRisk: "Alunos com Risco de Evasão (prioridade)",
+    loading: "Carregando..."
+  },
+  en: {
+    pageTitle: "Monitoring",
+    mainTitle: "Monitoring",
+    subtitle: "Overview of classes and students — attendance and retention analysis",
+    refresh: "Refresh dashboard",
+    totalClasses: "Total Classes",
+    avgAttendance: "Average Attendance",
+    studentsAtRisk: "Students at Risk",
+    classRanking: "Class Ranking by Attendance",
+    retentionRate: "Retention Rate by Period",
+    attentionClasses: "Classes Needing Attention",
+    exitTimeline: "Exit Timeline",
+    selectClass: "Select Class for Details",
+    dropoutRisk: "Students at Dropout Risk (priority)",
+    loading: "Loading..."
+  }
+};
+
+function aplicarIdiomaDashboard(idioma) {
+  const textos = TEXTOS_DASHBOARD[idioma] || TEXTOS_DASHBOARD.pt;
+
+  document.documentElement.lang = idioma === "en" ? "en" : "pt-BR";
+  document.title = idioma === "en" ? "Monitoring - The Tower" : "Monitoramento - The Tower";
+
+  document.querySelectorAll("[data-i18n-dashboard]").forEach(elemento => {
+    const chave = elemento.dataset.i18nDashboard;
+    if (textos[chave]) {
+      elemento.textContent = textos[chave];
+    }
+  });
+}
+
+function iniciarSeletorIdiomaDashboard() {
+  const idiomaAtual = localStorage.getItem("idiomaSite") || "pt";
+  const botoes = document.querySelectorAll(".botao-idioma-dashboard");
+  aplicarIdiomaDashboard(idiomaAtual);
+
+  botoes.forEach(botao => {
+    const ativo = botao.dataset.lang === idiomaAtual;
+    botao.classList.toggle("ativo", ativo);
+    botao.setAttribute("aria-pressed", String(ativo));
+
+    botao.addEventListener("click", () => {
+      const idioma = botao.dataset.lang;
+      localStorage.setItem("idiomaSite", idioma);
+      aplicarIdiomaDashboard(idioma);
+      window.applyAppLanguage?.(idioma);
+      window.dispatchEvent(new CustomEvent("app-language-change", {
+        detail: { language: idioma }
+      }));
+
+      botoes.forEach(item => {
+        const itemAtivo = item.dataset.lang === idioma;
+        item.classList.toggle("ativo", itemAtivo);
+        item.setAttribute("aria-pressed", String(itemAtivo));
+      });
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
+  iniciarSeletorIdiomaDashboard();
+
   // botão atualizar
   const btnAtualizar = document.getElementById("btnAtualizar");
   btnAtualizar.addEventListener("click", async () => {

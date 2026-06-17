@@ -11,6 +11,14 @@
         <header class="cabecalho">
             <div class="barra-topo">
                   <h1>Home</h1>
+                  <button class="btn-logout" id="btnLogout" title="Sair da sessão">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                          <polyline points="16 17 21 12 16 7"></polyline>
+                          <line x1="21" y1="12" x2="9" y2="12"></line>
+                      </svg>
+                      <span>Sair</span>
+                  </button>
             </div>
         </header>
 
@@ -20,7 +28,7 @@
             </section>
 
             <section class="agenda-hoje">
-                <h2>Suas aulas de hoje</h2>
+                <h2 data-i18n-home="todayClasses">Suas aulas de hoje</h2>
                 <div id="lista-agenda" class="agenda-lista">
                 </div>
             </section>
@@ -28,29 +36,29 @@
             <section class="grade-cards">
                 <div class="coluna-esquerda">
                     <div class="card card-financas" onclick="irPara('financas.html')">
-                        <p>Finanças</p>
+                        <p data-i18n-home="finances">Finanças</p>
                        
                     </div>
 
                     <div class="card card-turmas" onclick="irPara('turmas.html')">
-                        <p>Turmas</p>
+                        <p data-i18n-home="classes">Turmas</p>
                         
                     </div>
                 </div>
 
                 <div class="coluna-central">
                     <div class="card card-analises" onclick="irPara('dashboard.html')">
-                        <p>Minitoramento</p>
+                        <p data-i18n-home="monitoring">Monitoramento</p>
                         
                     </div>
 
                     <div class="card card-aulas" onclick="irPara('aulas_demonstrativas.html')">
-                        <p>Aulas Aulas Demonstrativas</p>
+                        <p data-i18n-home="demoClasses">Aulas Demonstrativas</p>
                         
                     </div>
 
                     <div class="card card-aulas" onclick="irPara('alunos.html')">
-                        <p>Gerenciameneto de Alunos</p>
+                        <p data-i18n-home="students">Gerenciamento de Alunos</p>
                         
                     </div>
                 </div>
@@ -59,23 +67,24 @@
 
                 <div class="coluna-direita">
                      <div class="card card-biblioteca"  onclick="irPara('biblioteca.html')">
-                        <p>Biblioteca</p>
+                        <p data-i18n-home="library">Biblioteca</p>
                         
                     </div>
 
                     <div class="card card-estoque" onclick="irPara('estoque.html')">
-                        <p>Estoque</p>
+                        <p data-i18n-home="stock">Estoque</p>
                        
                     </div>
 
                     <div class="card card-eventos" onclick="irPara('cadastra_material.html')">
-                        <p>Cadastro de Aulas</p>
+                        <p data-i18n-home="classRegistration">Cadastro de Aulas</p>
                         
                     </div>
                 </div>
             </section>
         </main>
 
+        <script src="assets/js/auth-guard.js"></script>
         <script src="assets/js/home.js"></script>
     </body>
 </html>

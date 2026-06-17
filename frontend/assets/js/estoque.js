@@ -1,6 +1,37 @@
 const API_URL = "http://localhost:3000/api";
 
-document.addEventListener("DOMContentLoaded", carregarEstoque);
+document.addEventListener("DOMContentLoaded", () => {
+    configurarModalInserirBook();
+    carregarEstoque();
+});
+
+function configurarModalInserirBook() {
+    const modal = document.getElementById('modalInserirBook');
+    const form = document.getElementById('formInserirBook');
+    const inputNumeroBook = document.getElementById('numeroBookInput');
+    const btnAbrirModal = document.getElementById('btnAbrirModalBook');
+    const btnCancelar = document.getElementById('btnCancelarBook');
+
+    btnAbrirModal.addEventListener('click', () => {
+        form.reset();
+        modal.classList.remove('hidden');
+        inputNumeroBook.focus();
+    });
+
+    btnCancelar.addEventListener('click', fecharModalInserirBook);
+
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            fecharModalInserirBook();
+        }
+    });
+
+    form.addEventListener('submit', inserirBook);
+}
+
+function fecharModalInserirBook() {
+    document.getElementById('modalInserirBook').classList.add('hidden');
+}
 
 async function carregarEstoque() {
     try {
@@ -64,6 +95,44 @@ function atualizarTotais(estoque) {
 
     document.getElementById('totalBooks').textContent = totalBooks;
     document.getElementById('booksDisponiveis').textContent = booksDisponiveis;
+}
+
+async function inserirBook(event) {
+    event.preventDefault();
+
+    const inputNumeroBook = document.getElementById('numeroBookInput');
+    const numeroBook = Number(inputNumeroBook.value);
+
+    if (!Number.isInteger(numeroBook) || numeroBook < 0) {
+        alert('Informe um numero de book inteiro valido.');
+        inputNumeroBook.focus();
+        return;
+    }
+
+    try {
+        const response = await fetch(`${API_URL}/estoque/inserirBook`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                numero_book: numeroBook
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            alert(data.message || 'Book inserido com sucesso!');
+            fecharModalInserirBook();
+            carregarEstoque();
+        } else {
+            alert(data.message || 'Erro ao inserir book.');
+        }
+    } catch (error) {
+        console.error('Erro:', error);
+        alert('Erro ao conectar com o servidor.');
+    }
 }
 
 async function incrementarEstoque(numeroBook) {

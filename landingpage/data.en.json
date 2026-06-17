@@ -1,0 +1,303 @@
+{
+  "site": {
+    "titulo": "The Tower Languages",
+    "descricao": "In-person, online, and hybrid classes"
+  },
+  "hero": {
+    "titulo_desktop": "Learn real English from zero to fluency",
+    "titulo_mobile": "Learn<br>real<br>English<br>from zero<br>to fluency",
+    "descricao": "Build real conversation skills, join events, learn with exclusive books, and move from the basics to fluency through a method designed for real results.",
+    "cta": "Book Your Free Trial Class",
+    "whatsapp": "5519992300116",
+    "whatsappMessage": "Hello! I would like to book a free trial class."
+  },
+  "modalidades": {
+    "titulo": "Learning Formats",
+    "itens": [
+      {
+        "icone": "monitor",
+        "titulo": "In Person",
+        "descricao": "In-person classes in an equipped classroom, ideal for students who enjoy direct interaction and real practice."
+      },
+      {
+        "icone": "wifi",
+        "titulo": "Online",
+        "descricao": "Online classes with the same quality as in-person lessons, with comfort, flexibility, and full support."
+      },
+      {
+        "icone": "repetir",
+        "titulo": "Hybrid",
+        "descricao": "Full flexibility to switch between in-person and online classes whenever you need."
+      }
+    ]
+  },
+  "tiposDeAulas": {
+    "titulo": "Class Types",
+    "tituloVantagens": "Advantages",
+    "ctaPlanos": "View Plans and Prices",
+    "particular": {
+      "titulo": "Private Class",
+      "descricao": "Individual lessons focused entirely on your pace and goals."
+    },
+    "grupo": {
+      "titulo": "Group Class",
+      "descricao": "Small groups designed for interaction, conversation, and close guidance."
+    },
+    "horarios": {
+      "subtitulo": "Monday to Friday",
+      "duracao": "80 minutes per week",
+      "turmas": [
+        { "nome": "Group 1", "horario": "7:00 PM to 8:20 PM" },
+        { "nome": "Group 2", "horario": "8:30 PM to 9:50 PM" }
+      ]
+    },
+    "vantagens": [
+      "Online or in-person classes",
+      "Free methodology books",
+      "700+ physical books available for borrowing",
+      "Monthly conversation events",
+      "Real-life interactive outings"
+    ]
+  },
+  "metodologia": {
+    "titulo": "The 7-Book Journey",
+    "subtitulo": "From absolute beginner to complete fluency. A progressive structure that truly works.",
+    "labelLivro": "Book",
+    "banner": {
+      "tag": "Learn naturally and progressively",
+      "titulo": "A Methodology Built on Constant Progress",
+      "subtitulo": "The right blend of practice, conversation, and structured development, guiding you toward fluency.",
+      "ctaPrimario": "View Methodology >",
+      "ctaSecundario": "Modules"
+    },
+    "diferenciais": {
+      "titulo": "Our Methodology",
+      "subtitulo": "A complete experience based on practice, structure, and real immersion.",
+      "itens": [
+        {
+          "classeIcone": "icone-rosa",
+          "titulo": "Progressive Structure",
+          "descricao": "From beginner to advanced. Seven books designed to deliver real progress, from placement to complex debates."
+        },
+        {
+          "classeIcone": "icone-azul",
+          "titulo": "Gradual Immersion",
+          "descricao": "Conversation from the beginning, gradually increasing from 50% to classes that are almost fully in English."
+        },
+        {
+          "classeIcone": "icone-laranja",
+          "titulo": "Additional Resources",
+          "descricao": "Stories, songs, and grammar structures focused on real everyday conversation."
+        },
+        {
+          "classeIcone": "icone-roxo",
+          "titulo": "Debates and Fluency",
+          "descricao": "Discussions about complex and current topics, developing argumentation and advanced vocabulary."
+        }
+      ]
+    },
+    "livros": [
+      {
+        "numLivro": "0",
+        "titulo": "Placement",
+        "duracao": "2.5 - 3 months",
+        "nivel": "100% Portuguese",
+        "descricao": "Ensures every student starts with the same foundation. Essential verbs, simple commands, and preparation for English classes.",
+        "cor": "#6A00FF",
+        "icone": "pilha"
+      },
+      {
+        "numLivro": "1",
+        "titulo": "First Immersion",
+        "duracao": "3 - 4 months",
+        "nivel": "50% to 85% English",
+        "descricao": "Introduction to listening and conversation. Everyday sentences and natural basic communication.",
+        "cor": "#2D5BFF",
+        "icone": "chat"
+      },
+      {
+        "numLivro": "2",
+        "titulo": "Reading and Pronunciation",
+        "duracao": "3 - 4 months",
+        "nivel": "70% - 80% English",
+        "descricao": "Children's stories and songs. 60 minutes of conversation plus 20 minutes of grammar. Correct and systematic pronunciation.",
+        "cor": "#00C9A7",
+        "icone": "livro"
+      },
+      {
+        "numLivro": "3",
+        "titulo": "Advanced Conversation",
+        "duracao": "4 - 5 months",
+        "nivel": "100% English",
+        "descricao": "Free conversation. Complex vocabulary, 65-70 minutes of conversation plus 10 minutes of grammar. Preparation for debates.",
+        "cor": "#00D26A",
+        "icone": "volume"
+      },
+      {
+        "numLivro": "4",
+        "titulo": "Debate Foundations",
+        "duracao": "4 - 5 months",
+        "nivel": "100% English",
+        "descricao": "Debates on complex topics such as abortion, age of criminal responsibility, capitalism vs. socialism, and euthanasia.",
+        "cor": "#FF7A00",
+        "icone": "balao"
+      },
+      {
+        "numLivro": "5",
+        "titulo": "Advanced Debates",
+        "duracao": "4 - 5 months",
+        "nivel": "100% English",
+        "descricao": "Deeper debate practice. Supporting complex opinions and expanding advanced vocabulary.",
+        "cor": "#FF2E63",
+        "icone": "pulso"
+      },
+      {
+        "numLivro": "6",
+        "titulo": "Fluency and Business",
+        "duracao": "4 - 5 months",
+        "nivel": "100% English",
+        "descricao": "Consolidated fluency. Practical projects involving companies, NGOs, campaigns, and professional presentations.",
+        "cor": "#F50057",
+        "icone": "maleta"
+      }
+    ]
+  },
+  "eventos": {
+    "titulo": "Events to Practice English in Real Life",
+    "itens": [
+      {
+        "titulo": "Monthly Conversation",
+        "descricao": "Every last Sunday of the month, from 1:00 PM to 5:30 PM. A meeting for students from the middle of module 2 onward, with interactive games and guided activities that turn vocabulary into real conversation.",
+        "tag": "Last Sunday",
+        "imagem": "./landingpage/assets/img/ConversacaoMensal.jpg"
+      },
+      {
+        "titulo": "Interactive Outings",
+        "descricao": "Hopi Hari, Taquaral, museums, cultural events, and more. We live real experiences where English is the only language allowed. Full immersion in practice.",
+        "tag": "100% English",
+        "imagem": "./landingpage/assets/img/PasseiosInterativos.jpg"
+      }
+    ]
+  },
+  "planos": {
+    "tituloGeral": "Plans and Prices",
+    "whatsapp": "5519992300116",
+    "msgGrupo": "Hello! I am interested in the Group Classes plan and would like more information.",
+    "msgParticular": "Hello! I am interested in Private Classes and would like more information.",
+    "periodo": "/month",
+    "ctaGrupo": "Join a Group",
+    "ctaParticular": "Start Now",
+    "grupo": {
+      "titulo": "Group Classes",
+      "preco": "149,90",
+      "vantagens": [
+        "1 class per week",
+        "80 minutes per class",
+        "Online or in person",
+        "Free material",
+        "700+ books available for borrowing",
+        "Monthly events included",
+        "Interactive outings"
+      ]
+    },
+    "particulares": {
+      "titulo": "Private Classes",
+      "itens": [
+        { "frequencia": "1x per week", "preco": "399,90", "popular": false },
+        { "frequencia": "2x per week", "preco": "779,90", "popular": true },
+        { "frequencia": "3x per week", "preco": "1.059,90", "popular": false }
+      ]
+    }
+  },
+  "sobre": {
+    "titulo": "About the Teacher",
+    "nomeMentor": "Prof. Jefferson",
+    "foto": "./landingpage/assets/img/prof_livro.webp",
+    "tituloIdiomas": "Languages Spoken:",
+    "paragrafos": [
+      "My name is Jefferson and I am 34 years old. I built an 11-year career at IBM Brazil using, in practice, all the languages I teach.",
+      "With degrees in Business Administration and Geography, I am passionate about learning. At 17, already fluent in English and Spanish, I started looking for new challenges. Today, I speak six languages at fluent or advanced levels.",
+      "I currently lead more than 20 groups and bring my international corporate experience into a proprietary methodology focused on real results."
+    ],
+    "idiomas": [
+      "US",
+      "ES",
+      "DE",
+      "IT",
+      "NL",
+      "BR"
+    ]
+  },
+  "footer": {
+    "descricao": "In-person, online, and hybrid classes.",
+    "copyright": "(c) 2025 The Tower Languages - All rights reserved.",
+    "links": [
+      { "texto": "Home", "url": "#home" },
+      { "texto": "Formats", "url": "#modalidades" },
+      { "texto": "Class Types", "url": "#tipos" },
+      { "texto": "Methodology", "url": "#metodologia" },
+      { "texto": "Events", "url": "#eventos" },
+      { "texto": "Plans", "url": "#planos" },
+      { "texto": "About", "url": "#sobre" },
+      { "texto": "System (Teacher Access)", "url": "./landingpage/sistema.html" }
+    ],
+    "redesSociais": [
+      { "nome": "Facebook", "url": "https://www.facebook.com/thetoweridiomas" },
+      { "nome": "Instagram", "url": "https://www.instagram.com/thetoweridiomas" }
+    ],
+    "contato": {
+      "telefone": "(19) 99230-0116",
+      "email": "thetoweridiomas@gmail.com",
+      "endereco": "R. Carlos Roberto Pereira, 41 - Jardim Florence I",
+      "cidade": "Campinas - SP, 13059-020"
+    }
+  },
+  "depoimentos": {
+    "titulo": "Proven Results",
+    "subtitulo": "See what our students say about the methodology and their results.",
+    "itens": [
+      {
+        "nome": "Vinicius Marques",
+        "curso": "Tower Student",
+        "texto": "I really enjoy the English classes. They are very interactive and we can understand what is being taught. We have an excellent, patient teacher who explains the content very well.",
+        "foto": "./landingpage/assets/img/depo_vinicius.jpg"
+      },
+      {
+        "nome": "Larissa Menezes",
+        "curso": "Tower Student",
+        "texto": "I am loving the English classes. They are clear and dynamic. The method is very interesting and I am finding it easier to learn, speak, and understand the language.",
+        "foto": "./landingpage/assets/img/depo_larissa.jpg"
+      },
+      {
+        "nome": "Gusttavo Snaydr",
+        "curso": "Tower Student",
+        "texto": "A true professional, with high-quality teaching and an incredible methodology to learn English quickly and effectively. I definitely recommend it.",
+        "foto": "./landingpage/assets/img/depo_gusttavo.jpg"
+      },
+      {
+        "nome": "Daniel Junior",
+        "curso": "Tower Student",
+        "texto": "The classes are very well explained. The teacher is patient and wise when teaching, helping even people with learning difficulties understand the content.",
+        "foto": "./landingpage/assets/img/depo_daniel.jpg"
+      },
+      {
+        "nome": "Gabriel Carvalho",
+        "curso": "Tower Student",
+        "texto": "Great, dynamic, and interactive classes with an excellent, fast, and easy teaching method. The teacher is also very good and explains everything very well.",
+        "foto": "./landingpage/assets/img/depo_gabriel.jpg"
+      },
+      {
+        "nome": "Cristina Almeida",
+        "curso": "Tower Student",
+        "texto": "I can only thank my teacher. He is an exemplary and competent language professional, truly incredible, and his methodology is wonderful.",
+        "foto": "./landingpage/assets/img/depo_cristina.jpg"
+      }
+    ]
+  },
+  "sistema": {
+    "titulo": "The Tower Project",
+    "subtitulo": "Web Platform for<br>Student and Finance Management",
+    "textoBotao": "Access Platform",
+    "linkUrl": "../frontend/login.html"
+  }
+}

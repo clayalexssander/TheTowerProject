@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:3000/api';
+export const API_ORIGIN = 'http://localhost:3000';
+const API_URL = `${API_ORIGIN}/api`;
 
 export async function login(usuario, senha){
     try{
@@ -6,6 +7,7 @@ export async function login(usuario, senha){
         const resposta = await fetch(`${API_URL}/login`, {
             method: 'POST',
             headers: { 'Content-Type' : 'application/json' },
+            credentials: 'include',
             body: JSON.stringify({ usuario, senha})
         });
 

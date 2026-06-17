@@ -17,33 +17,33 @@
     <header class="cabecalho">
             <div class="barra-topo">
                 <button class="btn-voltar" onclick="irPara('home.html')">⟵</button>
-                <h1 id="titulo-pagina">Monitoramento</h1>
+                <h1 id="titulo-pagina" data-i18n-dashboard="pageTitle">Monitoramento</h1>
             </div>
         </header>
   <!-- O restante do seu HTML permanece igual -->
   <div class="container">
     <header>
       <div>
-        <h1>Monitoramento</h1>
-        <div class="muted">Visão geral de turmas e alunos — análises de frequência e retenção</div>
+        <h1 data-i18n-dashboard="mainTitle">Monitoramento</h1>
+        <div class="muted" data-i18n-dashboard="subtitle">Visão geral de turmas e alunos — análises de frequência e retenção</div>
       </div>
       <div class="toolbar">
-        <button id="btnAtualizar" class="btn">Atualizar dashboard</button>
+        <button id="btnAtualizar" class="btn" data-i18n-dashboard="refresh">Atualizar dashboard</button>
       </div>
     </header>
 
     <!-- KPI cards -->
     <div class="small-grid" style="margin-bottom:16px">
       <div class="card">
-        <div class="muted">Total de Turmas</div>
+        <div class="muted" data-i18n-dashboard="totalClasses">Total de Turmas</div>
         <div id="kpiTotalTurmas" style="font-size:20px;font-weight:700">0</div>
       </div>
       <div class="card">
-        <div class="muted">Frequência Média</div>
+        <div class="muted" data-i18n-dashboard="avgAttendance">Frequência Média</div>
         <div id="kpiFreqMedia" style="font-size:20px;font-weight:700">0%</div>
       </div>
       <div class="card">
-        <div class="muted">Alunos em Risco</div>
+        <div class="muted" data-i18n-dashboard="studentsAtRisk">Alunos em Risco</div>
         <div id="kpiAlunosRisco" style="font-size:20px;font-weight:700">0</div>
       </div>
     </div>
@@ -51,27 +51,27 @@
     <!-- charts -->
     <div class="grid" style="margin-bottom:18px">
       <div class="card">
-        <h3>Ranking de Turmas por Frequência</h3>
+        <h3 data-i18n-dashboard="classRanking">Ranking de Turmas por Frequência</h3>
         <canvas id="chartRanking" height="200"></canvas>
       </div>
       <div class="card">
-        <h3>Taxa de Retenção por Período</h3>
+        <h3 data-i18n-dashboard="retentionRate">Taxa de Retenção por Período</h3>
         <canvas id="chartRetencao" height="200"></canvas>
       </div>
     </div>
 
     <div class="grid-3" style="margin-bottom:18px">
       <div class="card">
-        <h3>Turmas que Precisam de Atenção</h3>
+        <h3 data-i18n-dashboard="attentionClasses">Turmas que Precisam de Atenção</h3>
         <canvas id="chartAtencao" height="220"></canvas>
       </div>
       <div>
         <div class="card" style="margin-bottom:12px">
-          <h3>Linha do Tempo de Saídas</h3>
+          <h3 data-i18n-dashboard="exitTimeline">Linha do Tempo de Saídas</h3>
           <canvas id="chartSaidas" height="150"></canvas>
         </div>
         <div class="card">
-          <h3>Selecionar Turma para Detalhes</h3>
+          <h3 data-i18n-dashboard="selectClass">Selecionar Turma para Detalhes</h3>
           <div style="margin-bottom:10px">
             <select id="selectTurma" class="select-turma">
               <option value="">Carregando...</option>
@@ -83,11 +83,12 @@
     </div>
 
     <div class="card">
-      <h3>Alunos com Risco de Evasão (prioridade)</h3>
-      <div id="listaRisco">Carregando...</div>
+      <h3 data-i18n-dashboard="dropoutRisk">Alunos com Risco de Evasão (prioridade)</h3>
+      <div id="listaRisco" data-i18n-dashboard="loading">Carregando...</div>
     </div>
   </div>
 
+  <script src="./assets/js/auth-guard.js"></script>
   <script src="./assets/js/dashboard.js"></script>
 </body>
 </html>
