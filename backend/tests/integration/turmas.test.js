@@ -51,7 +51,7 @@ describe('Turmas Routes', () => {
       .post('/api/turmas/')
       .send({
         nome_turma: 'Turma B',
-        dia_semana: '',
+        dia_semana: 'sexta-feira',
         hora_inicio: '10:00',
         hora_fim: '12:00'
       });

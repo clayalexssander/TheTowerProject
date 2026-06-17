@@ -1,4 +1,9 @@
 .vscode/
 node_modules/
 .gitignore
+.env
+.env.local
+backend/*.pem
+backend/key.pem
+backend/cert.pem
 

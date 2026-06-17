@@ -3,6 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const cors =  require('cors');
 const path = require('path');
+const https = require('https');
+const fs = require('fs');
 const { getSession, requireAuth } = require('./middlewares/auth');
 const authRoutes = require("./routes/auth");
 const turmasRoutes = require('./routes/turmas');
@@ -85,15 +87,39 @@ app.use('/api/home', homeRouter);
 
 
 function startServer() {
-    app.listen(PORT, () => {
-        console.log(`Servidor rodando em http://localhost:${PORT}`);
-        iniciarAgendamentoRelatorioFinanceiroMensal();
-    });
+    const USE_HTTPS = process.env.USE_HTTPS === 'true';
+    const CERT_PATH = process.env.HTTPS_CERT || path.join(__dirname, 'cert.pem');
+    const KEY_PATH = process.env.HTTPS_KEY || path.join(__dirname, 'key.pem');
+    
+    if (USE_HTTPS && fs.existsSync(CERT_PATH) && fs.existsSync(KEY_PATH)) {
+        try {
+            const options = {
+                cert: fs.readFileSync(CERT_PATH),
+                key: fs.readFileSync(KEY_PATH)
+            };
+            
+            https.createServer(options, app).listen(PORT, () => {
+                console.log(`🔒 Servidor rodando em https://localhost:${PORT}`);
+                iniciarAgendamentoRelatorioFinanceiroMensal();
+            });
+        } catch (err) {
+            console.error('Erro ao carregar certificados HTTPS:', err.message);
+            console.log('⚠️  Iniciando em HTTP como fallback...');
+            app.listen(PORT, () => {
+                console.log(`Servidor rodando em http://localhost:${PORT}`);
+                iniciarAgendamentoRelatorioFinanceiroMensal();
+            });
+        }
+    } else {
+        app.listen(PORT, () => {
+            console.log(`Servidor rodando em http://localhost:${PORT}`);
+            iniciarAgendamentoRelatorioFinanceiroMensal();
+        });
+    }
 }
 
 if (require.main === module) {
     startServer();
 }
 
-module.exports = app;
-
+module.exports = app; 
