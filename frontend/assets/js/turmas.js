@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api";
+const API_URL = window.location.port === "3000" ? "/api" : "http://localhost:3000/api";
 const inputPesquisa = document.getElementById("pesquisaTurma");
 const cardsTurmas = document.getElementById("cardsTurmas");
 

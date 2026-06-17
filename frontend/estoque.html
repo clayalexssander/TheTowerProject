@@ -17,7 +17,10 @@
     <main class="container-estoque">
         <section class="secao-estoque">
             <div class="cabecalho-tabela">
-                <h2>Materiais Didáticos</h2>
+                <div class="linha-titulo-estoque">
+                    <h2>Materiais Didáticos</h2>
+                    <button id="btnAbrirModalBook" class="btn-inserir-book" type="button">Inserir Book</button>
+                </div>
                 <p>Controle de quantidade de books disponíveis</p>
             </div>
             
@@ -48,7 +51,29 @@
             </div>
         </section>
     </main>
+    <div id="modalInserirBook" class="modal hidden">
+        <div class="modal-content">
+            <h2>Inserir Book</h2>
+            <form id="formInserirBook">
+                <label for="numeroBookInput">Número do book</label>
+                <input
+                    id="numeroBookInput"
+                    name="numero_book"
+                    type="number"
+                    min="0"
+                    step="1"
+                    placeholder="Ex: 0"
+                    required
+                >
+                <div class="modal-botoes" style="margin-top: 20px; display: flex; justify-content: space-between;">
+                    <button type="button" id="btnCancelarBook" class="btn-cancelar" style="padding: 10px 20px; cursor: pointer; border-radius: 8px; border: 1px solid #ccc;">Cancelar</button>
+                    <button type="submit" class="btn-confirmar" style="padding: 10px 20px; cursor: pointer; border-radius: 8px; background: linear-gradient(90deg, #a020f0, #ff4b2b); color: white; border: none; font-weight: bold;">Confirmar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
+      <script src="./assets/js/auth-guard.js"></script>
       <script src="./assets/js/estoque.js"></script>
 </body>
 </html>

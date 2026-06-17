@@ -1,3 +1,5 @@
+const API_URL = window.location.port === "3000" ? "/api" : "http://localhost:3000/api";
+
 const inputPesquisa = document.getElementById("inputPesquisa");
 const painel = document.getElementById("painelAluno");
 const btnEditar = document.getElementById("btnEditar");
@@ -19,7 +21,7 @@ const editTipoBancaria = document.getElementById("editTipoBancaria");
 let alunoSelecionado = null;
 
 btnEditar.addEventListener("click", async () => {
-    const resTurmas = await fetch(`http://localhost:3000/api/alunos/turmas`);
+    const resTurmas = await fetch(`${API_URL}/alunos/turmas`);
     const dadosTurmas = await resTurmas.json();
     
     editTurma.innerHTML = "";
@@ -64,7 +66,7 @@ formEditar.addEventListener("submit", async (e) => {
         return;
     }
 
-    const res = await fetch(`http://localhost:3000/api/alunos/editar/${alunoSelecionado}`, {
+    const res = await fetch(`${API_URL}/alunos/editar/${alunoSelecionado}`, {
         method: "PUT", 
         headers: { "Content-Type" : "application/json"},
         body: JSON.stringify({nome, cidade,tipo_bancaria, telefone, bolsista, email, ativo, nivel, id_turma})
@@ -86,7 +88,7 @@ inputPesquisa.addEventListener("keyup", async (e) => {
     const nome = e.target.value.trim();
     if (nome.length < 2) return;
 
-    const res = await fetch(`http://localhost:3000/api/alunos/pesquisar/${nome}`);
+    const res = await fetch(`${API_URL}/alunos/pesquisar/${nome}`);
     const dados = await res.json();
 
     if (!dados) return;
@@ -116,7 +118,7 @@ inputPesquisa.addEventListener("keyup", async (e) => {
 async function carregarHistorico(id) {
     historicoLista.innerHTML = "";
  
-    const res = await fetch(`http://localhost:3000/api/alunos/historico/${id}`);
+    const res = await fetch(`${API_URL}/alunos/historico/${id}`);
     const dados = await res.json();
     const hist = dados.data[0];
 
@@ -130,7 +132,7 @@ async function carregarHistorico(id) {
 
 async function carregaFrequencia(id) {
     historicoLista.innerHTML = "";
-    const res = await fetch(`http://localhost:3000/api/alunos/frequencia/${id}`);
+    const res = await fetch(`${API_URL}/alunos/frequencia/${id}`);
     const dados = await res.json();
     const freq = dados.data[0];
  
