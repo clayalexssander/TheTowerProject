@@ -1,6 +1,10 @@
 const API_URL = "http://localhost:3000/api";
 let charts = {};
 
+function traduzir(texto) {
+  return window.translateAppText ? window.translateAppText(texto) : texto;
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   // elementos modal
   const modal = document.getElementById("modalPagamento");
@@ -108,7 +112,7 @@ async function carregarProjecao(){
     charts.projecao = new Chart(ctx, {
       type: 'pie',
       data: { 
-        labels, 
+        labels: labels.map(traduzir), 
         datasets: [{ 
           data: values,
           backgroundColor: ['#10b981', '#f59e0b', '#3b82f6'],
@@ -145,7 +149,7 @@ async function carregarTendencia(){
     if(charts.tendencia) charts.tendencia.destroy();
     charts.tendencia = new Chart(ctx, {
       type: 'line',
-      data: { labels, datasets: [{ label:'Receita mensal', data: values, fill:false, tension:0.2 }] },
+      data: { labels: labels.map(traduzir), datasets: [{ label: traduzir('Receita mensal'), data: values, fill:false, tension:0.2 }] },
       options:{plugins:{legend:{display:false}},responsive:true}
     });
   }catch(err){ console.error("tendencia",err); }
@@ -166,9 +170,9 @@ async function carregarLtv(){
     charts.ltv = new Chart(ctx, {
       type: 'bar',
       data: { 
-        labels, 
+        labels: labels.map(traduzir), 
         datasets: [{ 
-          label: 'Receita Total (R$)',
+          label: traduzir('Receita Total (R$)'),
           data: values,
           backgroundColor: '#7c3aed',
           borderRadius: 6,
@@ -211,9 +215,9 @@ async function carregarPrev3(){
     charts.prev3 = new Chart(ctx, {
       type: 'bar',
       data: { 
-        labels, 
+        labels: labels.map(traduzir), 
         datasets: [{ 
-          label: 'Receita Projetada', 
+          label: traduzir('Receita Projetada'), 
           data: values, 
           backgroundColor: [
             '#ec4899',

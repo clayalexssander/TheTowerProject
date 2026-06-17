@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:3000/api';
+export const API_ORIGIN = 'http://localhost:3000';
+const API_URL = `${API_ORIGIN}/api`;
 
 export async function login(usuario, senha){
     try{

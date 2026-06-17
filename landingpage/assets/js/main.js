@@ -12,7 +12,7 @@ const MAPA_COMPONENTES = {
 
 let dadosDoSite = {};
 
-const CAMINHO_BASE = './landingpage'; 
+const CAMINHO_BASE = new URL('../..', import.meta.url).href.replace(/\/$/, '');
 const IDIOMA_PADRAO = 'pt';
 const ARQUIVOS_IDIOMA = {
     pt: 'data.json',

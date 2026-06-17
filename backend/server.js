@@ -20,6 +20,7 @@ const app = express();
 const PORT = 3000;
 const ROOT_DIR = path.join(__dirname, '..');
 const FRONTEND_DIR = path.join(ROOT_DIR, 'frontend');
+const LANDINGPAGE_DIR = path.join(ROOT_DIR, 'landingpage');
 const PROTECTED_PAGES = new Set([
     'alunos.html',
     'aula.html',
@@ -42,9 +43,14 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use('/frontend/assets', express.static(path.join(FRONTEND_DIR, 'assets')));
+app.use('/landingpage', express.static(LANDINGPAGE_DIR));
 
 app.get(['/', '/index.html'], (req, res) => {
     res.sendFile(path.join(ROOT_DIR, 'index.html'));
+});
+
+app.get('/site', (req, res) => {
+    res.sendFile(path.join(LANDINGPAGE_DIR, 'index.html'));
 });
 
 app.get('/frontend/:page', (req, res, next) => {

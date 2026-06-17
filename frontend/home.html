@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <script src="assets/js/validation.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tower - Home</title>
@@ -29,7 +28,7 @@
             </section>
 
             <section class="agenda-hoje">
-                <h2>Suas aulas de hoje</h2>
+                <h2 data-i18n-home="todayClasses">Suas aulas de hoje</h2>
                 <div id="lista-agenda" class="agenda-lista">
                 </div>
             </section>
@@ -37,29 +36,29 @@
             <section class="grade-cards">
                 <div class="coluna-esquerda">
                     <div class="card card-financas" onclick="irPara('financas.html')">
-                        <p>Finanças</p>
+                        <p data-i18n-home="finances">Finanças</p>
                        
                     </div>
 
                     <div class="card card-turmas" onclick="irPara('turmas.html')">
-                        <p>Turmas</p>
+                        <p data-i18n-home="classes">Turmas</p>
                         
                     </div>
                 </div>
 
                 <div class="coluna-central">
                     <div class="card card-analises" onclick="irPara('dashboard.html')">
-                        <p>Minitoramento</p>
+                        <p data-i18n-home="monitoring">Monitoramento</p>
                         
                     </div>
 
                     <div class="card card-aulas" onclick="irPara('aulas_demonstrativas.html')">
-                        <p>Aulas Aulas Demonstrativas</p>
+                        <p data-i18n-home="demoClasses">Aulas Demonstrativas</p>
                         
                     </div>
 
                     <div class="card card-aulas" onclick="irPara('alunos.html')">
-                        <p>Gerenciameneto de Alunos</p>
+                        <p data-i18n-home="students">Gerenciamento de Alunos</p>
                         
                     </div>
                 </div>
@@ -68,17 +67,17 @@
 
                 <div class="coluna-direita">
                      <div class="card card-biblioteca"  onclick="irPara('biblioteca.html')">
-                        <p>Biblioteca</p>
+                        <p data-i18n-home="library">Biblioteca</p>
                         
                     </div>
 
                     <div class="card card-estoque" onclick="irPara('estoque.html')">
-                        <p>Estoque</p>
+                        <p data-i18n-home="stock">Estoque</p>
                        
                     </div>
 
                     <div class="card card-eventos" onclick="irPara('cadastra_material.html')">
-                        <p>Cadastro de Aulas</p>
+                        <p data-i18n-home="classRegistration">Cadastro de Aulas</p>
                         
                     </div>
                 </div>

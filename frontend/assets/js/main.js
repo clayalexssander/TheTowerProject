@@ -1,4 +1,4 @@
-import { login } from './api.js';
+import { API_ORIGIN, login } from './api.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("loginForm");
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if(result.success){
                 localStorage.setItem("user", JSON.stringify({ usuario: usuario }));
-                window.location.href = './frontend/home.html';
+                window.location.href = `${API_ORIGIN}/frontend/home.html`;
             }else{
                 error.textContent = result.message || "Usuário ou senha incorretos.";
             }
