@@ -21,13 +21,13 @@ function atualizarSaudacao(){
     }
 
     if(hora >= 5 && hora < 12){
-        saudacao = `Bom dia ${nomeUsuario}, bem-vindo de volta!`;
+        saudacao = `Bom dia Jefferson, bem-vindo de volta!`;
     } 
     else if(hora >= 12 && hora < 18){
-        saudacao = `Boa tarde ${nomeUsuario}, bem-vindo de volta!`;
+        saudacao = `Boa tarde Jefferson, bem-vindo de volta!`;
     }
     else{
-        saudacao = `Boa noite ${nomeUsuario}, bem-vindo de volta!`;
+        saudacao = `Boa noite Jefferson, bem-vindo de volta!`;
     }
     document.getElementById("saudacao").textContent = saudacao;
 }

@@ -44,6 +44,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use('/frontend/assets', express.static(path.join(FRONTEND_DIR, 'assets')));
+app.use('/materiais', express.static(path.join(ROOT_DIR, 'materiais')));
 
 app.get(['/', '/index.html'], (req, res) => {
     res.sendFile(path.join(ROOT_DIR, 'index.html'));
@@ -83,7 +84,16 @@ app.use('/api/home', homeRouter);
 
 
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando em http://localhost:${PORT}`);
-    iniciarAgendamentoRelatorioFinanceiroMensal();
-}); 
+function startServer() {
+    app.listen(PORT, () => {
+        console.log(`Servidor rodando em http://localhost:${PORT}`);
+        iniciarAgendamentoRelatorioFinanceiroMensal();
+    });
+}
+
+if (require.main === module) {
+    startServer();
+}
+
+module.exports = app;
+
